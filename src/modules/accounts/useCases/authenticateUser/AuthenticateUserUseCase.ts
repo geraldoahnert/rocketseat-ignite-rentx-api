@@ -1,3 +1,4 @@
+import { AppError } from './../../../../errors/AppError';
 import { compare } from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 import { sign } from 'jsonwebtoken';
@@ -27,13 +28,13 @@ class AuthenticateUserUseCase {
     // Se usuário existe.
     const user = await this.usersRepository.findByEmail(email);
     if (!user) {
-      throw new Error('Email or password incorrect.');
+      throw new AppError('Email or password incorrect.');
     }
 
     // Verificar se a senha está correta.
     const passwordMatch = await compare(password, user.password);
     if (!passwordMatch) {
-      throw new Error('Email or password incorrect.');
+      throw new AppError('Email or password incorrect.');
     }
 
     // Se sim, gera o JSONWEBTOKEN.
