@@ -9,9 +9,9 @@ module.exports = {
     './src/modules/cars/entities/*.ts',
     './src/modules/accounts/entities/*.ts',
   ],
-  migrations: ['./src/database/migrations/*.ts'],
+  migrations: ['./src/shared/infra/typeorm/migrations/*.ts'],
   cli: {
-    migrationsDir: './src/database/migrations',
+    migrationsDir: './src/shared/infra/typeorm/migrations',
   },
   autoLoadEntities: true,
 };
