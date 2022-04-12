@@ -1,13 +1,13 @@
 import { CarsRepositoryInMemory } from '@modules/cars/repositories/in-memory/CarsRepositoryInMemory';
-import { ListCarsUseCase } from './ListCarsUseCase';
+import { ListAvailableCars } from './ListAvailableCarsUseCase';
 
-let listCarsUseCase: ListCarsUseCase;
+let listCarsUseCase: ListAvailableCars;
 let carsRepositoryInMemory: CarsRepositoryInMemory;
 
 describe('List Cars', () => {
   beforeEach(() => {
     carsRepositoryInMemory = new CarsRepositoryInMemory();
-    listCarsUseCase = new ListCarsUseCase(carsRepositoryInMemory);
+    listCarsUseCase = new ListAvailableCars(carsRepositoryInMemory);
   });
 
   it('should be able to list all available cars', async () => {
