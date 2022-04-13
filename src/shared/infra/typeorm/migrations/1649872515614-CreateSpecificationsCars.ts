@@ -23,7 +23,7 @@ export class CreateSpecificationsCars1649872515614
           },
           {
             name: 'created_at',
-            type: 'timestmap',
+            type: 'timestamp',
             default: 'now()',
           },
         ],
