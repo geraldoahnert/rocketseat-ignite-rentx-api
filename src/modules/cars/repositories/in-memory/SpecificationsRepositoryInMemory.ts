@@ -4,10 +4,13 @@ import {
   ISpecificationsRepository,
 } from '@modules/cars/repositories/ISpecificationInMemory';
 
-class SpecificationInMemory implements ISpecificationsRepository {
+class SpecificationsRepositoryInMemory implements ISpecificationsRepository {
   specifications: Specification[] = [];
 
-  async create({ description, name }: ICreateSpecificationDTO): Promise<void> {
+  async create({
+    description,
+    name,
+  }: ICreateSpecificationDTO): Promise<Specification> {
     const specification = new Specification();
 
     Object.assign(specification, {
@@ -16,6 +19,7 @@ class SpecificationInMemory implements ISpecificationsRepository {
     });
 
     this.specifications.push(specification);
+    return specification;
   }
 
   async findByName(name: string): Promise<Specification> {
@@ -32,4 +36,4 @@ class SpecificationInMemory implements ISpecificationsRepository {
   }
 }
 
-export { SpecificationInMemory };
+export { SpecificationsRepositoryInMemory };
