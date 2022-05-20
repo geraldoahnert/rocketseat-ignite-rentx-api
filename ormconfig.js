@@ -1,6 +1,6 @@
 module.exports = {
   type: 'postgres',
-  host: 'database_ignite',
+  host: 'localhost',
   port: 5432,
   username: 'docker',
   password: 'ignite',
