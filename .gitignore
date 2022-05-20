@@ -1,6 +1,7 @@
 # Ignore
 ignore
 tmp
+.todo
 
 # Logs
 logs
