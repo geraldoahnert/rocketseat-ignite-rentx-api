@@ -34,26 +34,25 @@ describe('List Category Controller', () => {
       .post('/categories')
       .send({
         name: 'Category Supertest',
-        description: 'Category Supertest Description',
+        description: 'Category Description Supertest',
       })
-      .set('Authorization', `Bearer ${token}`);
+      .set({
+        Authorization: `Bearer ${token}`,
+      });
+
+    // última categoria não é inclusa
     await request(app)
       .post('/categories')
       .send({
-        name: 'Category Supertest',
-        description: 'Category Supertest Description',
+        name: 'Category Supertestt',
+        description: 'Category Description Supertest',
       })
-      .set('Authorization', `Bearer ${token}`);
-    await request(app)
-      .post('/categories')
-      .send({
-        name: 'Category Supertest',
-        description: 'Category Supertest Description',
-      })
-      .set('Authorization', `Bearer ${token}`);
+      .set({
+        Authorization: `Bearer ${token}`,
+      });
+
     const response = await request(app).get('/categories');
-    console.log(response.body);
     expect(response.status).toBe(200);
-    expect(response.body.length).toBe(2);
+    expect(response.body.length).toBe(1);
   });
 });
